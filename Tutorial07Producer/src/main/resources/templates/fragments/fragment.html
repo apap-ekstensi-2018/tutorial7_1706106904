@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:fragment="topfragment(title)">
+	<title th:text="${title}"></title>
+	<link rel="stylesheet" href="/css/bootstrap.min.css" />
+	<script type="text/javascript" src="/js/jquery-3.2.1.min.js"></script>
+	<script type="text/javascript" src="/js/bootstrap.min.js"></script>
+	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+       <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.13/css/jquery.dataTables.min.css"/>
+       <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js"></script>
+       <script>
+    		$(document).ready(function(){
+    			$('#student-table').dataTable();
+    		});
+    		$('.navbar-nav li').click(function(){
+   		 	$('.navbar-nav li').removeClass('active');
+   		    $(this).addClass('active');
+   		});
+    	</script>
+</head>
+<body>
+	<div th:fragment="header">
+		<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+			<a class="navbar-brand" href="#">APAP</a>
+			<button class="navbar-toggler" type="button" 
+				data-toggle="collapse" data-target="#navbarSupportedContent"
+				aria-controls="navbarSupportedContent" aria-exapanded="false"
+				aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			
+			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<ul class="navbar-nav mr-auto">
+					<li class="nav-item" th:classappend="${title == 'Home' ? 'active':''}">
+						<a class="nav-link" href="/">Home</a>
+					</li>
+					<li class="nav-item" th:classappend="${title == 'Daftar Mahasiswa' ? 'active':''}">
+						<a class="nav-link" href="/student/viewall">Daftar Mahasiswa</a>
+					</li>
+					<li class="nav-item" th:classappend="${title == 'Menambah Mahasiswa' ? 'active':''}">
+						<a class="nav-link" href="/student/add">Menambah Mahasiswa</a>
+					</li>
+				</ul>
+				
+				
+			</div>
+		</nav>
+	</div>
+	<div th:fragment="footer">
+		<hr />
+		<h4>Mata Kuliah APAP</h4>
+	</div>
+</body>
+</html>
